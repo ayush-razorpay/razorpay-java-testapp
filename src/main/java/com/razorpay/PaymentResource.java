@@ -92,6 +92,12 @@ public class PaymentResource {
      toReturn.put("signature checked","signature not validated");;
      toReturn.put("data",formParams.toString());
 
+      String errorSource = formParams.getFirst("error[source]");
+      String errorMetaDataOrderId = formParams.getFirst("error[metadata][order_id]");
+      String errorDescription = formParams.getFirst("error[description]");
+
+      System.out.println("errorDescription : "+errorDescription);
+
      return Response.ok().entity(toReturn.toString()).build();
 
     }
